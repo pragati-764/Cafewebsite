@@ -1,0 +1,6221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Vibe Check Cafe — Good food. Better moods."
+    >
+
+    <title>Vibe Check Cafe</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* ==================================================
+           1. VARIABLES
+        ================================================== */
+
+        :root {
+
+            --burgundy: #6d1f2f;
+            --dark-burgundy: #511521;
+
+            --pistachio: #b7c99b;
+            --light-pistachio: #dce5cb;
+
+            --pink: #e9b7b5;
+
+            --cream: #fff6e7;
+
+            --brown: #33231f;
+
+        }
+
+
+        /* ==================================================
+           2. RESET
+        ================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+
+            background: var(--cream);
+
+            color: var(--brown);
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color:
+                transparent;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* ==================================================
+           3. NAVBAR
+        ================================================== */
+
+        .navbar {
+
+            height: 85px;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background:
+                rgba(255,246,231,.95);
+
+            border-bottom:
+                1px solid
+                rgba(109,31,47,.15);
+
+            backdrop-filter:
+                blur(12px);
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--burgundy);
+
+            text-decoration: none;
+
+        }
+
+
+        .logo-icon {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                var(--pistachio);
+
+        }
+
+
+        .logo-text {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+        }
+
+
+        .logo-text small {
+
+            display: block;
+
+            margin-top: 2px;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 8px;
+
+            letter-spacing: 5px;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 28px;
+
+        }
+
+
+        .nav-links a {
+
+            color: var(--brown);
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        .nav-actions {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+        }
+
+
+        .order-btn {
+
+            padding:
+                11px 18px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                var(--burgundy);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+        }
+
+
+        #cartBadge {
+
+            min-width: 20px;
+            height: 20px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-left: 5px;
+
+            border-radius: 20px;
+
+            background:
+                var(--pistachio);
+
+            color:
+                var(--burgundy);
+
+            font-size: 9px;
+
+        }
+
+
+        .theme-toggle {
+
+            width: 40px;
+            height: 40px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            border-radius: 50%;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+        }
+
+
+        .open-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                8px 11px;
+
+            border:
+                1px solid
+                rgba(109,31,47,.25);
+
+            border-radius: 30px;
+
+            color:
+                var(--burgundy);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: gray;
+
+        }
+
+
+        .open-status.open
+        .status-dot {
+
+            background: #558b4d;
+
+        }
+
+
+        .open-status.closed
+        .status-dot {
+
+            background: #ba5058;
+
+        }
+
+
+        /* ==================================================
+           4. HERO
+        ================================================== */
+
+        .hero {
+
+            min-height:
+                calc(100vh - 85px);
+
+            position: relative;
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr .95fr;
+
+            align-items: center;
+
+            padding:
+                60px 8% 80px;
+
+            overflow: hidden;
+
+        }
+
+
+        .eyebrow {
+
+            margin-bottom: 20px;
+
+            color:
+                var(--burgundy);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .hero h1 {
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(
+                    55px,
+                    6vw,
+                    95px
+                );
+
+            line-height: .95;
+
+            letter-spacing: -3px;
+
+        }
+
+
+        .hero h1 span {
+
+            color:
+                var(--brown);
+
+            font-style: italic;
+
+        }
+
+
+        .tagline {
+
+            max-width: 550px;
+
+            margin-top: 30px;
+
+            color: #66534d;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 15px;
+
+            margin-top: 35px;
+
+        }
+
+
+        .primary-btn,
+        .secondary-btn {
+
+            padding:
+                14px 23px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        .primary-btn {
+
+            background:
+                var(--burgundy);
+
+            color: white;
+
+        }
+
+
+        .secondary-btn {
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        /* HERO CUP */
+
+        .hero-art {
+
+            min-height: 500px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .pink-shape {
+
+            width: 420px;
+            height: 420px;
+
+            position: absolute;
+
+            background:
+                var(--pink);
+
+            border-radius:
+                48% 52% 65% 35% /
+                43% 40% 60% 57%;
+
+            transform:
+                rotate(-7deg);
+
+        }
+
+
+        .cup {
+
+            width: 270px;
+            height: 300px;
+
+            position: relative;
+
+            z-index: 3;
+
+        }
+
+
+        .cup-body {
+
+            width: 230px;
+            height: 220px;
+
+            position: absolute;
+
+            left: 20px;
+            top: 60px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                var(--pistachio);
+
+            border:
+                4px solid
+                var(--burgundy);
+
+            border-radius:
+                10px 10px
+                75px 75px;
+
+        }
+
+
+        .cup-rim {
+
+            width: 230px;
+            height: 75px;
+
+            position: absolute;
+
+            left: 20px;
+            top: 25px;
+
+            z-index: 5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                4px solid
+                var(--burgundy);
+
+            border-radius: 50%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .coffee {
+
+            width: 205px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #72483b;
+
+            color:
+                var(--cream);
+
+            font-size: 28px;
+
+        }
+
+
+        .cup-logo {
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            text-align: center;
+
+            font-size: 34px;
+
+            font-weight: 800;
+
+        }
+
+
+        .cup-logo small {
+
+            display: block;
+
+            font-family:
+                "DM Sans",
+                sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 6px;
+
+        }
+
+
+        /* ==================================================
+           5. TICKER
+        ================================================== */
+
+        .ticker {
+
+            overflow: hidden;
+
+            padding: 16px 0;
+
+            background:
+                var(--burgundy);
+
+            color:
+                var(--cream);
+
+        }
+
+
+        .ticker-track {
+
+            width: max-content;
+
+            display: flex;
+
+            animation:
+                tickerMove
+                25s linear
+                infinite;
+
+        }
+
+
+        .ticker-content {
+
+            display: flex;
+
+            align-items: center;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .ticker-content span {
+
+            margin: 0 30px;
+
+            white-space: nowrap;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .ticker-content b {
+
+            color:
+                var(--pistachio);
+
+        }
+
+
+        @keyframes tickerMove {
+
+            to {
+                transform:
+                    translateX(-50%);
+            }
+
+        }
+
+
+        /* ==================================================
+           SHARED HEADINGS
+        ================================================== */
+
+        .section-heading {
+
+            max-width: 750px;
+
+            margin:
+                0 auto 50px;
+
+            text-align: center;
+
+        }
+
+
+        .section-heading > p {
+
+            margin-bottom: 10px;
+
+            color:
+                var(--burgundy);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .section-heading h2 {
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(
+                    38px,
+                    5vw,
+                    62px
+                );
+
+        }
+
+
+        .section-heading > span {
+
+            display: block;
+
+            margin-top: 10px;
+
+            color: #705c55;
+
+        }
+
+
+        /* ==================================================
+           LIVE COUNTER
+        ================================================== */
+
+        .cafe-counter {
+
+            padding: 100px 8%;
+
+            background:
+                var(--pink);
+
+        }
+
+
+        .counter-board {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            overflow: hidden;
+
+            border:
+                3px solid
+                var(--burgundy);
+
+            border-radius: 22px;
+
+            background:
+                var(--cream);
+
+            box-shadow:
+                10px 10px 0
+                var(--burgundy);
+
+        }
+
+
+        .counter-item {
+
+            min-height: 220px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 30px;
+
+            border-right:
+                1px dashed
+                rgba(109,31,47,.3);
+
+        }
+
+
+        .counter-item:last-child {
+            border-right: 0;
+        }
+
+
+        .counter-label {
+
+            margin-bottom: 20px;
+
+            color:
+                var(--burgundy);
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .flip-clock {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+        }
+
+
+        .flip-box,
+        .flip-text {
+
+            padding: 18px;
+
+            border-radius: 7px;
+
+            background:
+                var(--burgundy);
+
+            color:
+                var(--cream);
+
+            font-weight: 800;
+
+        }
+
+
+        .flip-box {
+
+            min-width: 70px;
+
+            text-align: center;
+
+            font-size: 35px;
+
+        }
+
+
+        .clock-colon {
+
+            color:
+                var(--burgundy);
+
+            font-size: 30px;
+
+        }
+
+
+        /* ==================================================
+           ABOUT
+        ================================================== */
+
+        .about-section {
+
+            padding: 110px 8%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .about-grid {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            gap: 80px;
+
+            align-items: center;
+
+        }
+
+
+        .about-frame {
+
+            padding:
+                14px 14px 45px;
+
+            background: white;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            transform:
+                rotate(-3deg);
+
+            box-shadow:
+                10px 12px 0
+                var(--pink);
+
+        }
+
+
+        .about-frame img {
+
+            width: 100%;
+            height: 480px;
+
+            object-fit: cover;
+
+        }
+
+
+        .about-content h2 {
+
+            margin:
+                10px 0 25px;
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size:
+                clamp(
+                    42px,
+                    5vw,
+                    68px
+                );
+
+            line-height: 1;
+
+        }
+
+
+        .about-content p {
+
+            margin-bottom: 15px;
+
+            color: #67534d;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* ==================================================
+           HOUSE RULES
+        ================================================== */
+
+        .rules-section {
+
+            padding: 100px 8%;
+
+            background:
+                var(--burgundy);
+
+        }
+
+
+        .rules-section
+        .section-heading * {
+
+            color:
+                var(--cream);
+
+        }
+
+
+        .rules-board {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+        }
+
+
+        .rule-card {
+
+            min-height: 240px;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                rgba(255,246,231,.3);
+
+            color:
+                var(--cream);
+
+            transition: .3s;
+
+        }
+
+
+        .rule-card:hover {
+
+            background:
+                var(--pistachio);
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        .rule-icon {
+
+            margin-bottom: 20px;
+
+            font-size: 30px;
+
+        }
+
+
+        .rule-card h3 {
+
+            margin-bottom: 10px;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 22px;
+
+        }
+
+
+        /* ==================================================
+           SIGNATURE PICKS
+        ================================================== */
+
+        .signature-section {
+
+            padding: 110px 8%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .signature-grid {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .signature-card {
+
+            overflow: hidden;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            border-radius: 20px;
+
+            background: #fffaf1;
+
+            transition: .3s;
+
+        }
+
+
+        .signature-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                8px 8px 0
+                var(--pink);
+
+        }
+
+
+        .product-image {
+
+            height: 310px;
+
+            position: relative;
+
+        }
+
+
+        .product-image img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        .product-tag {
+
+            position: absolute;
+
+            left: 15px;
+            top: 15px;
+
+            padding:
+                7px 11px;
+
+            border-radius: 20px;
+
+            background:
+                var(--pistachio);
+
+            color:
+                var(--burgundy);
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+        }
+
+
+        .product-info {
+
+            padding: 23px;
+
+        }
+
+
+        .product-title {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+        }
+
+
+        .product-title h3 {
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 23px;
+
+        }
+
+
+        .product-description {
+
+            min-height: 70px;
+
+            margin: 17px 0;
+
+            color: #66544e;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .product-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+        }
+
+
+        .add-order,
+        .mini-add,
+        .builder-add,
+        .quiz-add,
+        .book-event {
+
+            border: 0;
+
+            background:
+                var(--burgundy);
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+        }
+
+
+        .add-order {
+
+            padding:
+                11px 15px;
+
+            border-radius: 30px;
+
+        }
+
+
+        /* ==================================================
+           MENU
+        ================================================== */
+
+        .full-menu {
+
+            padding: 110px 8%;
+
+            background:
+                var(--light-pistachio);
+
+        }
+
+
+        .menu-tabs,
+        .diet-filters {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 10px;
+
+        }
+
+
+        .menu-tabs {
+            margin-bottom: 20px;
+        }
+
+
+        .diet-filters {
+            margin-bottom: 45px;
+        }
+
+
+        .menu-tab {
+
+            padding:
+                10px 18px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            border-radius: 30px;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+            font-weight: 700;
+
+        }
+
+
+        .menu-tab.active,
+        .menu-tab:hover {
+
+            background:
+                var(--burgundy);
+
+            color: white;
+
+        }
+
+
+        .menu-list {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                0 40px;
+
+        }
+
+
+        .menu-item {
+
+            min-height: 145px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 22px 5px;
+
+            border-bottom:
+                1px dashed
+                rgba(109,31,47,.35);
+
+        }
+
+
+        .menu-item.hidden {
+            display: none;
+        }
+
+
+        .menu-item h3 {
+
+            margin: 5px 0;
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+        }
+
+
+        .menu-item p {
+
+            color: #675950;
+
+            font-size: 12px;
+
+        }
+
+
+        .mini-add {
+
+            width: 35px;
+            height: 35px;
+
+            margin-top: 8px;
+
+            border-radius: 50%;
+
+        }
+
+
+        /* ==================================================
+           BUILDER
+        ================================================== */
+
+        .drink-builder {
+
+            padding: 110px 8%;
+
+            background:
+                var(--pink);
+
+        }
+
+
+        .builder-layout {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1.2fr .8fr;
+
+            overflow: hidden;
+
+            border:
+                3px solid
+                var(--burgundy);
+
+            border-radius: 24px;
+
+            background:
+                var(--cream);
+
+            box-shadow:
+                10px 10px 0
+                var(--burgundy);
+
+        }
+
+
+        .builder-options {
+
+            padding: 45px;
+
+        }
+
+
+        .builder-step {
+
+            display: grid;
+
+            grid-template-columns:
+                40px 1fr;
+
+            padding: 22px 0;
+
+            border-bottom:
+                1px dashed
+                rgba(109,31,47,.3);
+
+        }
+
+
+        .choice-buttons {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 12px;
+
+        }
+
+
+        .choice {
+
+            padding:
+                9px 13px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            border-radius: 25px;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+        }
+
+
+        .choice.active {
+
+            background:
+                var(--burgundy);
+
+            color: white;
+
+        }
+
+
+        .drink-preview {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 40px;
+
+            background:
+                var(--pistachio);
+
+        }
+
+
+        .custom-cup {
+
+            width: 170px;
+            height: 240px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border:
+                4px solid
+                var(--burgundy);
+
+            border-radius:
+                10px 10px
+                50px 50px;
+
+            background:
+                rgba(255,255,255,.4);
+
+        }
+
+
+        .drink-liquid {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 82%;
+
+            background: #93634e;
+
+            transition: .4s;
+
+        }
+
+
+        .custom-logo {
+
+            width: 100%;
+
+            position: absolute;
+
+            top: 110px;
+
+            z-index: 5;
+
+            color: white;
+
+            text-align: center;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+        }
+
+
+        .creation-info {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            text-align: center;
+
+        }
+
+
+        .creation-price {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin: 15px 0;
+
+            padding-top: 15px;
+
+            border-top:
+                1px solid
+                rgba(109,31,47,.3);
+
+        }
+
+
+        .builder-add {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border-radius: 30px;
+
+        }
+
+
+        /* ==================================================
+           QUIZ
+        ================================================== */
+
+        .vibe-quiz {
+
+            padding: 110px 8%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .quiz-card {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 40px;
+
+            border:
+                3px solid
+                var(--burgundy);
+
+            border-radius: 24px;
+
+            background:
+                var(--pink);
+
+            box-shadow:
+                10px 10px 0
+                var(--burgundy);
+
+        }
+
+
+        .quiz-question {
+            display: none;
+            text-align: center;
+        }
+
+
+        .quiz-question.active {
+            display: block;
+        }
+
+
+        .quiz-options {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 14px;
+
+            margin-top: 25px;
+
+        }
+
+
+        .quiz-option {
+
+            min-height: 145px;
+
+            padding: 20px;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            border-radius: 17px;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+        }
+
+
+        .quiz-option:hover {
+
+            background:
+                var(--pistachio);
+
+        }
+
+
+        .quiz-result {
+
+            display: none;
+
+            text-align: center;
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        .quiz-result.show {
+            display: block;
+        }
+
+
+        /* ==================================================
+           EVENTS
+        ================================================== */
+
+        .events-section {
+
+            padding: 110px 8%;
+
+            background:
+                var(--pistachio);
+
+        }
+
+
+        .events-list {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+        }
+
+
+        .event-card {
+
+            display: grid;
+
+            grid-template-columns:
+                120px 1fr 170px;
+
+            gap: 25px;
+
+            align-items: center;
+
+            padding: 28px 0;
+
+            border-top:
+                1px solid
+                rgba(109,31,47,.35);
+
+        }
+
+
+        .event-date {
+
+            width: 95px;
+            height: 95px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            border-radius: 50%;
+
+            background:
+                var(--cream);
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        .event-date span {
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 34px;
+
+        }
+
+
+        .event-info h3 {
+
+            color:
+                var(--burgundy);
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 24px;
+
+        }
+
+
+        .book-event {
+
+            padding:
+                11px 15px;
+
+            border-radius: 30px;
+
+        }
+
+
+        /* ==================================================
+           PHOTO WALL
+        ================================================== */
+
+        .photo-section {
+
+            padding: 110px 6%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .photo-wall {
+
+            max-width: 1150px;
+            height: 650px;
+
+            position: relative;
+
+            margin: auto;
+
+            overflow: hidden;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            border-radius: 25px;
+
+            background:
+                var(--pink);
+
+        }
+
+
+        .polaroid {
+
+            width: 210px;
+
+            position: absolute;
+
+            padding:
+                11px 11px 38px;
+
+            background: white;
+
+            cursor: grab;
+
+            user-select: none;
+
+            touch-action: none;
+
+            box-shadow:
+                4px 8px 15px
+                rgba(0,0,0,.18);
+
+        }
+
+
+        .polaroid img {
+
+            width: 100%;
+            height: 180px;
+
+            object-fit: cover;
+
+            pointer-events: none;
+
+        }
+
+
+        .polaroid p {
+
+            margin-top: 10px;
+
+            color:
+                var(--burgundy);
+
+            text-align: center;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-style: italic;
+
+        }
+
+
+        .polaroid:nth-child(1) {
+            left: 7%;
+            top: 60px;
+            transform: rotate(-7deg);
+        }
+
+        .polaroid:nth-child(2) {
+            left: 35%;
+            top: 30px;
+            transform: rotate(5deg);
+        }
+
+        .polaroid:nth-child(3) {
+            right: 7%;
+            top: 70px;
+            transform: rotate(-4deg);
+        }
+
+        .polaroid:nth-child(4) {
+            left: 15%;
+            bottom: 45px;
+            transform: rotate(6deg);
+        }
+
+        .polaroid:nth-child(5) {
+            left: 44%;
+            bottom: 35px;
+            transform: rotate(-6deg);
+        }
+
+        .polaroid:nth-child(6) {
+            right: 5%;
+            bottom: 35px;
+            transform: rotate(7deg);
+        }
+
+
+        /* ==================================================
+           FAQ
+        ================================================== */
+
+        .faq-section {
+
+            padding: 110px 8%;
+
+            background:
+                var(--pink);
+
+        }
+
+
+        .faq-layout {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .7fr 1.3fr;
+
+            gap: 80px;
+
+        }
+
+
+        .faq-item {
+
+            border-bottom:
+                1px solid
+                rgba(109,31,47,.35);
+
+        }
+
+
+        .faq-question {
+
+            width: 100%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 22px 4px;
+
+            border: 0;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+            text-align: left;
+
+            font-family:
+                "Playfair Display",
+                serif;
+
+            font-size: 18px;
+
+        }
+
+
+        .faq-answer {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            transition:
+                max-height .35s ease;
+
+        }
+
+
+        .faq-answer p {
+
+            padding:
+                0 35px 22px 4px;
+
+            color: #664f49;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* ==================================================
+           VISIT
+        ================================================== */
+
+        .visit-section {
+
+            padding: 110px 8%;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .visit-layout {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .85fr 1.15fr;
+
+            overflow: hidden;
+
+            border:
+                3px solid
+                var(--burgundy);
+
+            border-radius: 24px;
+
+        }
+
+
+        .visit-details {
+
+            padding: 40px;
+
+            background:
+                var(--pistachio);
+
+        }
+
+
+        .visit-block {
+
+            padding: 20px 0;
+
+            border-bottom:
+                1px dashed
+                rgba(109,31,47,.3);
+
+        }
+
+
+        .hours-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin: 10px 0;
+
+        }
+
+
+        .map-card {
+
+            min-height: 480px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                #efd9cc;
+
+        }
+
+
+        .map-pin {
+
+            padding: 20px;
+
+            border:
+                2px solid
+                var(--burgundy);
+
+            background:
+                var(--cream);
+
+            color:
+                var(--burgundy);
+
+            text-align: center;
+
+        }
+
+
+        /* ==================================================
+           MODALS
+        ================================================== */
+
+        .booking-overlay,
+        .reservation-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 5000;
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                rgba(40,25,22,.7);
+
+            backdrop-filter:
+                blur(7px);
+
+        }
+
+
+        .booking-overlay.show,
+        .reservation-overlay.show {
+
+            display: flex;
+
+        }
+
+
+        .booking-modal,
+        .reservation-modal {
+
+            width: 100%;
+            max-width: 480px;
+
+            position: relative;
+
+            padding: 35px;
+
+            border:
+                3px solid
+                var(--burgundy);
+
+            border-radius: 20px;
+
+            background:
+                var(--cream);
+
+        }
+
+
+        .booking-modal input,
+        .booking-modal select,
+        .reservation-modal input,
+        .reservation-modal select {
+
+            width: 100%;
+
+            margin:
+                7px 0 15px;
+
+            padding: 12px;
+
+        }
+
+
+        /* ==================================================
+           CART
+        ================================================== */
+
+        .cart-backdrop {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 6998;
+
+            visibility: hidden;
+
+            background:
+                rgba(30,20,18,.5);
+
+            opacity: 0;
+
+            transition: .3s;
+
+        }
+
+
+        .cart-backdrop.show {
+
+            visibility: visible;
+            opacity: 1;
+
+        }
+
+
+        .cart-drawer {
+
+            width:
+                min(460px,100%);
+
+            position: fixed;
+
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            z-index: 6999;
+
+            display: flex;
+
+            flex-direction: column;
+
+            background:
+                var(--cream);
+
+            border-left:
+                3px solid
+                var(--burgundy);
+
+            transform:
+                translateX(105%);
+
+            transition: .4s;
+
+        }
+
+
+        .cart-drawer.open {
+
+            transform:
+                translateX(0);
+
+        }
+
+
+        .cart-header {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 24px;
+
+            border-bottom:
+                1px solid
+                rgba(109,31,47,.2);
+
+        }
+
+
+        .cart-close {
+
+            width: 40px;
+            height: 40px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            border-radius: 50%;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+            font-size: 25px;
+
+        }
+
+
+        .cart-body {
+
+            flex: 1;
+
+            overflow-y: auto;
+
+            padding: 20px 25px;
+
+        }
+
+
+        .empty-cart {
+
+            padding: 50px 10px;
+
+            color:
+                var(--burgundy);
+
+            text-align: center;
+
+        }
+
+
+        .cart-item {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr auto;
+
+            gap: 15px;
+
+            padding: 18px 0;
+
+            border-bottom:
+                1px dashed
+                rgba(109,31,47,.3);
+
+        }
+
+
+        .quantity-control {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            margin-top: 8px;
+
+        }
+
+
+        .quantity-control button {
+
+            width: 30px;
+            height: 30px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            border-radius: 50%;
+
+            background:
+                transparent;
+
+            color:
+                var(--burgundy);
+
+            cursor: pointer;
+
+        }
+
+
+        .cart-receipt {
+
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border:
+                1px solid
+                var(--burgundy);
+
+            background: #fffdf7;
+
+            color: #5c2635;
+
+            font-family:
+                monospace;
+
+        }
+
+
+        .cart-receipt.show {
+            display: block;
+        }
+
+
+        .receipt-item,
+        .receipt-row,
+        .receipt-total {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin: 7px 0;
+
+        }
+
+
+        .cart-footer {
+
+            padding: 20px 25px;
+
+            border-top:
+                1px solid
+                rgba(109,31,47,.2);
+
+        }
+
+
+        .cart-total-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 12px;
+
+            color:
+                var(--burgundy);
+
+        }
+
+
+        .whatsapp-checkout {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 0;
+
+            border-radius: 30px;
+
+            background: #236c4b;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-weight: 800;
+
+        }
+
+
+        /* ==================================================
+           DARK THEME
+        ================================================== */
+
+        body.dark-theme {
+
+            --cream: #211917;
+
+            --brown: #f6e8d7;
+
+            --burgundy: #e6a1aa;
+
+            --dark-burgundy: #c97b87;
+
+            --pistachio: #84976b;
+
+            --light-pistachio: #39432f;
+
+            --pink: #583b3e;
+
+        }
+
+
+        body.dark-theme
+        .navbar {
+
+            background:
+                rgba(33,25,23,.95);
+
+        }
+
+
+        body.dark-theme
+        .signature-card,
+        body.dark-theme
+        .quiz-option,
+        body.dark-theme
+        .builder-layout,
+        body.dark-theme
+        .booking-modal,
+        body.dark-theme
+        .reservation-modal {
+
+            background: #2b211e;
+
+        }
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media(max-width: 950px) {
+
+            .nav-links,
+            .open-status {
+                display: none;
+            }
+
+            .hero,
+            .about-grid,
+            .builder-layout,
+            .faq-layout,
+            .visit-layout {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .signature-grid,
+            .rules-board {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .menu-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .counter-board {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .counter-item {
+
+                border-right: 0;
+
+                border-bottom:
+                    1px dashed
+                    rgba(109,31,47,.3);
+
+            }
+
+            .event-card {
+
+                grid-template-columns:
+                    90px 1fr;
+
+            }
+
+            .event-action {
+
+                grid-column: 2;
+
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .navbar {
+
+                height: 75px;
+
+                padding: 0 4%;
+
+            }
+
+            .logo-text {
+
+                font-size: 14px;
+
+            }
+
+            .hero {
+
+                min-height: auto;
+
+                padding:
+                    70px 5% 40px;
+
+                text-align: center;
+
+            }
+
+            .hero-buttons {
+
+                justify-content: center;
+
+                flex-direction: column;
+
+            }
+
+            .hero-art {
+
+                min-height: 400px;
+
+                transform:
+                    scale(.82);
+
+            }
+
+            .quiz-options {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .photo-wall {
+
+                height: auto;
+
+                display: grid;
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 20px;
+
+                padding: 25px;
+
+            }
+
+            .polaroid {
+
+                width: 100%;
+
+                position: relative;
+
+                inset: auto !important;
+
+                transform:
+                    none !important;
+
+            }
+
+            .event-card {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .event-action {
+
+                grid-column: auto;
+
+            }
+
+        }
+
+
+        @media(
+            prefers-reduced-motion:
+            reduce
+        ) {
+
+            * {
+
+                animation-duration:
+                    .01ms !important;
+
+                transition-duration:
+                    .01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
+
+<header class="navbar">
+
+    <a href="#home"
+       class="logo">
+
+        <span class="logo-icon">
+            ☕
+        </span>
+
+        <span class="logo-text">
+            VIBE CHECK
+            <small>CAFE</small>
+        </span>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+        <a href="#about">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#vibe">The Vibe</a>
+        <a href="#contact">Visit Us</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <div class="open-status"
+             id="openStatus">
+
+            <span class="status-dot"></span>
+
+            <span id="statusText">
+                Checking...
+            </span>
+
+        </div>
+
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button">
+            ☾
+        </button>
+
+
+        <button
+            class="order-btn"
+            id="cartButton"
+            type="button">
+
+            Order
+
+            <span id="cartBadge">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="hero"
+         id="home">
+
+    <div class="hero-content">
+
+        <p class="eyebrow">
+            ✦ YOUR NEIGHBOURHOOD ADDA
+        </p>
+
+        <h1>
+            Good food.<br>
+            <span>Better moods.</span>
+        </h1>
+
+        <p class="tagline">
+            Thodi chai, thoda chill,
+            aur full-on good vibes.
+            <br>
+            Bas mood leke aao,
+            baaki hum sambhal lenge.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu"
+               class="primary-btn">
+                Explore Menu →
+            </a>
+
+            <a href="#about"
+               class="secondary-btn">
+                Our Story
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-art">
+
+        <div class="pink-shape"></div>
+
+        <div class="cup">
+
+            <div class="cup-rim">
+
+                <div class="coffee">
+                    ♥
+                </div>
+
+            </div>
+
+            <div class="cup-body">
+
+                <div class="cup-logo">
+                    VIBE
+                    <small>CHECK</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     TICKER
+================================================== -->
+
+<section class="ticker">
+
+    <div class="ticker-track">
+
+        <div class="ticker-content">
+
+            <span>CHAI & CHILL</span><b>✦</b>
+
+            <span>BUN MASKA FOREVER</span><b>✦</b>
+
+            <span>GOOD FOOD. BETTER MOODS.</span><b>✦</b>
+
+            <span>FULL-ON GOOD VIBES</span><b>✦</b>
+
+            <span>COFFEE PE CHARCHA</span><b>✦</b>
+
+        </div>
+
+
+        <div class="ticker-content">
+
+            <span>CHAI & CHILL</span><b>✦</b>
+
+            <span>BUN MASKA FOREVER</span><b>✦</b>
+
+            <span>GOOD FOOD. BETTER MOODS.</span><b>✦</b>
+
+            <span>FULL-ON GOOD VIBES</span><b>✦</b>
+
+            <span>COFFEE PE CHARCHA</span><b>✦</b>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     LIVE COUNTER
+================================================== -->
+
+<section class="cafe-counter">
+
+    <div class="section-heading">
+
+        <p>✦ LIVE FROM THE CAFE ✦</p>
+
+        <h2>
+            What's the vibe right now?
+        </h2>
+
+    </div>
+
+
+    <div class="counter-board">
+
+        <div class="counter-item">
+
+            <p class="counter-label">
+                LOCAL TIME
+            </p>
+
+            <div class="flip-clock">
+
+                <div class="flip-box">
+                    <span id="hour">00</span>
+                </div>
+
+                <span class="clock-colon">
+                    :
+                </span>
+
+                <div class="flip-box">
+                    <span id="minute">00</span>
+                </div>
+
+                <strong id="ampm">
+                    AM
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="counter-item">
+
+            <p class="counter-label">
+                CURRENT VIBE
+            </p>
+
+            <div class="flip-text">
+                <span id="vibeText">
+                    CHAI O'CLOCK
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="counter-item">
+
+            <p class="counter-label">
+                TODAY'S FAVOURITE
+            </p>
+
+            <div class="flip-text">
+                BUN MASKA
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section class="about-section"
+         id="about">
+
+    <div class="about-grid">
+
+        <div class="about-frame">
+
+            <img
+                src="images/about-cafe.jpg"
+                alt="Vibe Check Cafe interior"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p class="eyebrow">
+                ✦ OUR STORY ✦
+            </p>
+
+            <h2>
+                Old-school soul.
+                <br>
+                <em>New-school energy.</em>
+            </h2>
+
+            <p>
+                Vibe Check Cafe is our love
+                letter to the old Irani cafés
+                where everyday conversations
+                felt important.
+            </p>
+
+            <p>
+                We borrow marble tables,
+                bentwood chairs, bun maska,
+                strong chai and vintage signs,
+                then give everything a playful
+                modern twist.
+            </p>
+
+            <p>
+                Have your nostalgia with Wi-Fi,
+                your Irani chai with a croffle
+                and your old Bombay mood with
+                a very modern playlist.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     HOUSE RULES
+================================================== -->
+
+<section class="rules-section">
+
+    <div class="section-heading">
+
+        <p>✦ PLEASE READ BEFORE ENTERING ✦</p>
+
+        <h2>House Rules</h2>
+
+        <span>
+            Very serious rules. Mostly.
+        </span>
+
+    </div>
+
+
+    <div class="rules-board">
+
+        <article class="rule-card">
+            <div class="rule-icon">☕</div>
+            <h3>Chai before chaos.</h3>
+            <p>
+                Important decisions happen
+                after the first sip.
+            </p>
+        </article>
+
+        <article class="rule-card">
+            <div class="rule-icon">♡</div>
+            <h3>Share the table.</h3>
+            <p>
+                Strangers are future chai
+                friends.
+            </p>
+        </article>
+
+        <article class="rule-card">
+            <div class="rule-icon">♫</div>
+            <h3>No playlist slander.</h3>
+            <p>
+                The old Bollywood song was
+                intentional.
+            </p>
+        </article>
+
+        <article class="rule-card">
+            <div class="rule-icon">✦</div>
+            <h3>Stay a little longer.</h3>
+            <p>
+                Good conversations don't need
+                checkout timers.
+            </p>
+        </article>
+
+        <article class="rule-card">
+            <div class="rule-icon">☺</div>
+            <h3>Be nice.</h3>
+            <p>
+                Kindness is compulsory.
+            </p>
+        </article>
+
+        <article class="rule-card">
+            <div class="rule-icon">⌁</div>
+            <h3>Phone eats first. Once.</h3>
+            <p>
+                Take the photo. Then enjoy
+                the food.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     SIGNATURE PICKS
+================================================== -->
+
+<section class="signature-section"
+         id="menu">
+
+    <div class="section-heading">
+
+        <p>✦ HOUSE FAVOURITES ✦</p>
+
+        <h2>Our Signature Picks</h2>
+
+        <span>
+            Made for your feed.
+            Even better IRL.
+        </span>
+
+    </div>
+
+
+    <div class="signature-grid">
+
+
+        <article class="signature-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/pista-first-light.jpg"
+                    alt="Pista First Light"
+                >
+
+                <span class="product-tag">
+                    BESTSELLER
+                </span>
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-title">
+
+                    <h3>
+                        Pista First Light
+                    </h3>
+
+                    <strong>₹220</strong>
+
+                </div>
+
+                <p class="product-description">
+                    Creamy pistachio, cold milk
+                    and cardamom. Subah ka
+                    glow-up, glass mein.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span>🌱 VEG</span>
+
+                    <button
+                        class="add-order"
+                        data-item="Pista First Light"
+                        data-price="220">
+
+                        + Add to Order
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="signature-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/pink-monsoon.jpg"
+                    alt="Pink Monsoon"
+                >
+
+                <span class="product-tag">
+                    VIBE PICK
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-title">
+
+                    <h3>
+                        Pink Monsoon
+                    </h3>
+
+                    <strong>₹240</strong>
+
+                </div>
+
+                <p class="product-description">
+                    Rose, strawberry and
+                    sparkling lime.
+                    Baarish wali feeling.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span>🌿 VEGAN</span>
+
+                    <button
+                        class="add-order"
+                        data-item="Pink Monsoon"
+                        data-price="240">
+
+                        + Add to Order
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <article class="signature-card">
+
+            <div class="product-image">
+
+                <img
+                    src="images/after-hours-croffle.jpg"
+                    alt="After Hours Croffle"
+                >
+
+                <span class="product-tag">
+                    LATE NIGHT FAVE
+                </span>
+
+            </div>
+
+            <div class="product-info">
+
+                <div class="product-title">
+
+                    <h3>
+                        After Hours Croffle
+                    </h3>
+
+                    <strong>₹280</strong>
+
+                </div>
+
+                <p class="product-description">
+                    Buttery croffle, chocolate,
+                    vanilla cream and sea salt.
+                    Diet kal se.
+                </p>
+
+                <div class="product-bottom">
+
+                    <span>🌱 VEG</span>
+
+                    <button
+                        class="add-order"
+                        data-item="After Hours Croffle"
+                        data-price="280">
+
+                        + Add to Order
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FULL MENU
+================================================== -->
+
+<section class="full-menu">
+
+    <div class="section-heading">
+
+        <p>✦ THE FULL SCENE ✦</p>
+
+        <h2>Pick your mood.</h2>
+
+    </div>
+
+
+    <div class="menu-tabs">
+
+        <button class="menu-tab active"
+                data-category="all">
+            All
+        </button>
+
+        <button class="menu-tab"
+                data-category="chai">
+            Chai
+        </button>
+
+        <button class="menu-tab"
+                data-category="coffee">
+            Coffee
+        </button>
+
+        <button class="menu-tab"
+                data-category="coolers">
+            Coolers
+        </button>
+
+        <button class="menu-tab"
+                data-category="nashta">
+            Nashta
+        </button>
+
+        <button class="menu-tab"
+                data-category="meetha">
+            Meetha
+        </button>
+
+    </div>
+
+
+    <div class="diet-filters">
+
+        <label>
+            <input type="checkbox"
+                   value="veg">
+            Vegetarian
+        </label>
+
+        <label>
+            <input type="checkbox"
+                   value="vegan">
+            Vegan
+        </label>
+
+        <label>
+            <input type="checkbox"
+                   value="gf">
+            Gluten Free
+        </label>
+
+    </div>
+
+
+    <div class="menu-list"
+         id="menuList">
+
+        <!-- Items generated by JavaScript -->
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     BUILD YOUR DRINK
+================================================== -->
+
+<section class="drink-builder">
+
+    <div class="section-heading">
+
+        <p>✦ YOU DO YOU ✦</p>
+
+        <h2>Build Your Own Drink</h2>
+
+        <span>
+            Your mood. Your drink.
+            Zero judgement.
+        </span>
+
+    </div>
+
+
+    <div class="builder-layout">
+
+        <div class="builder-options"
+             id="builderOptions">
+
+            <!-- generated by JS -->
+
+        </div>
+
+
+        <div class="drink-preview">
+
+            <div class="custom-cup">
+
+                <div class="drink-liquid"
+                     id="drinkLiquid">
+                </div>
+
+                <div class="custom-logo">
+                    VIBE CHECK
+                </div>
+
+            </div>
+
+
+            <div class="creation-info">
+
+                <h3 id="creationName">
+                    Classic Iced Coffee
+                </h3>
+
+                <p id="creationDetails">
+                    Regular milk
+                </p>
+
+                <div class="creation-price">
+
+                    <span>Your drink</span>
+
+                    <strong id="customPrice">
+                        ₹160
+                    </strong>
+
+                </div>
+
+                <button
+                    class="builder-add"
+                    id="builderAdd">
+
+                    Add My Creation
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     VIBE QUIZ
+================================================== -->
+
+<section class="vibe-quiz"
+         id="vibe">
+
+    <div class="section-heading">
+
+        <p>✦ QUICK VIBE CHECK ✦</p>
+
+        <h2>What's your drink mood?</h2>
+
+        <span>
+            Two questions.
+            One important recommendation.
+        </span>
+
+    </div>
+
+
+    <div class="quiz-card">
+
+        <div class="quiz-question active"
+             id="question1">
+
+            <h3>
+                Aaj ka mood kya hai?
+            </h3>
+
+            <div class="quiz-options">
+
+                <button class="quiz-option"
+                        data-answer="soft">
+                    🌤️
+                    <br>
+                    Soft & Slow
+                </button>
+
+                <button class="quiz-option"
+                        data-answer="fun">
+                    🌸
+                    <br>
+                    Fun & Flirty
+                </button>
+
+                <button class="quiz-option"
+                        data-answer="chaos">
+                    🌙
+                    <br>
+                    Beautiful Chaos
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-question"
+             id="question2">
+
+            <h3>
+                Pick your ideal café moment.
+            </h3>
+
+            <div class="quiz-options">
+
+                <button class="quiz-option"
+                        data-answer="morning">
+                    ☀️
+                    <br>
+                    Slow Morning
+                </button>
+
+                <button class="quiz-option"
+                        data-answer="date">
+                    💌
+                    <br>
+                    Cute Café Date
+                </button>
+
+                <button class="quiz-option"
+                        data-answer="night">
+                    ✨
+                    <br>
+                    Late Night Adda
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="quiz-result"
+             id="quizResult">
+
+            <p>YOUR VIBE IS...</p>
+
+            <div id="resultIcon">
+                ✦
+            </div>
+
+            <h3 id="resultDrink"></h3>
+
+            <p id="resultDescription"></p>
+
+            <strong id="resultPrice"></strong>
+
+            <br><br>
+
+            <button
+                class="quiz-add"
+                id="quizAdd">
+
+                Add to Order
+
+            </button>
+
+            <button
+                id="restartQuiz">
+
+                Try Again
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     EVENTS
+================================================== -->
+
+<section class="events-section">
+
+    <div class="section-heading">
+
+        <p>✦ WHAT'S HAPPENING ✦</p>
+
+        <h2>
+            Pull up.
+            Something's brewing.
+        </h2>
+
+    </div>
+
+
+    <div class="events-list">
+
+        <article class="event-card">
+
+            <div class="event-date">
+                <span>28</span>
+                <strong>NOV</strong>
+            </div>
+
+            <div class="event-info">
+                <h3>Vinyl & Chai Night</h3>
+                <p>
+                    Old records, warm chai
+                    and zero skips.
+                </p>
+            </div>
+
+            <div class="event-action">
+
+                <button
+                    class="book-event"
+                    data-event="Vinyl & Chai Night">
+
+                    Book a Spot →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="event-card">
+
+            <div class="event-date">
+                <span>05</span>
+                <strong>DEC</strong>
+            </div>
+
+            <div class="event-info">
+                <h3>Paint, Sip & Chill</h3>
+                <p>
+                    Canvas, colours and
+                    your favourite drink.
+                </p>
+            </div>
+
+            <div class="event-action">
+
+                <button
+                    class="book-event"
+                    data-event="Paint, Sip & Chill">
+
+                    Book a Spot →
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="event-card">
+
+            <div class="event-date">
+                <span>12</span>
+                <strong>DEC</strong>
+            </div>
+
+            <div class="event-info">
+                <h3>
+                    After Hours:
+                    Open Mic
+                </h3>
+
+                <p>
+                    Poetry, music,
+                    comedy and stories.
+                </p>
+            </div>
+
+            <div class="event-action">
+
+                <button
+                    class="book-event"
+                    data-event="After Hours Open Mic">
+
+                    Book a Spot →
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     PHOTO WALL
+================================================== -->
+
+<section class="photo-section">
+
+    <div class="section-heading">
+
+        <p>✦ CAUGHT ON CAMERA ✦</p>
+
+        <h2>The Vibe Wall</h2>
+
+        <span>
+            Drag the photos around.
+        </span>
+
+    </div>
+
+
+    <div class="photo-wall"
+         id="photoWall">
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-1.jpg"
+                 alt="Cafe coffee">
+            <p>coffee first ☕</p>
+        </article>
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-2.jpg"
+                 alt="Friends at cafe">
+            <p>the usual suspects ♡</p>
+        </article>
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-3.jpg"
+                 alt="Cafe interior">
+            <p>our favourite corner</p>
+        </article>
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-4.jpg"
+                 alt="Cafe food">
+            <p>phone eats first</p>
+        </article>
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-5.jpg"
+                 alt="Cafe evening">
+            <p>after hours ✦</p>
+        </article>
+
+        <article class="polaroid">
+            <img src="images/cafe-vibe-6.jpg"
+                 alt="Pistachio drink">
+            <p>pista era 🌿</p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     FAQ
+================================================== -->
+
+<section class="faq-section">
+
+    <div class="faq-layout">
+
+        <div>
+
+            <p class="eyebrow">
+                ✦ QUESTIONS, QUESTIONS ✦
+            </p>
+
+            <h2>
+                Before you pull up.
+            </h2>
+
+        </div>
+
+
+        <div class="faq-list"
+             id="faqList">
+
+            <!-- generated by JS -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     VISIT
+================================================== -->
+
+<section class="visit-section"
+         id="contact">
+
+    <div class="section-heading">
+
+        <p>✦ COME SAY HELLO ✦</p>
+
+        <h2>
+            Your table's waiting.
+        </h2>
+
+    </div>
+
+
+    <div class="visit-layout">
+
+        <div class="visit-details">
+
+            <div class="visit-block">
+
+                <p class="eyebrow">
+                    01 / FIND US
+                </p>
+
+                <h3>Vibe Check Cafe</h3>
+
+                <p>
+                    Your Café Address Here
+                    <br>
+                    Your City, India
+                </p>
+
+            </div>
+
+
+            <div class="visit-block">
+
+                <p class="eyebrow">
+                    02 / OPENING HOURS
+                </p>
+
+                <div class="hours-row">
+                    <span>
+                        Monday – Thursday
+                    </span>
+
+                    <strong>
+                        9 AM – 10 PM
+                    </strong>
+                </div>
+
+                <div class="hours-row">
+                    <span>
+                        Friday – Sunday
+                    </span>
+
+                    <strong>
+                        9 AM – 11 PM
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                class="order-btn"
+                id="reserveTable">
+
+                Reserve a Table
+
+            </button>
+
+            <a
+                class="secondary-btn"
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noopener">
+
+                Instagram
+
+            </a>
+
+        </div>
+
+
+        <div class="map-card">
+
+            <div class="map-pin">
+
+                ☕
+                <br>
+
+                <strong>
+                    VIBE CHECK CAFE
+                </strong>
+
+                <br>
+
+                Add your Google Map here
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     BOOKING MODAL
+================================================== -->
+
+<div class="booking-overlay"
+     id="bookingOverlay">
+
+    <div class="booking-modal">
+
+        <button id="closeBooking">
+            ×
+        </button>
+
+        <h2 id="bookingEvent">
+            Event
+        </h2>
+
+        <input
+            type="text"
+            id="bookingName"
+            placeholder="Your name"
+        >
+
+        <select id="bookingPeople">
+
+            <option value="1">
+                1 person
+            </option>
+
+            <option value="2">
+                2 people
+            </option>
+
+            <option value="3">
+                3 people
+            </option>
+
+            <option value="4">
+                4 people
+            </option>
+
+        </select>
+
+        <button
+            class="order-btn"
+            id="confirmBooking">
+
+            Confirm Booking
+
+        </button>
+
+        <p id="bookingMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     RESERVATION MODAL
+================================================== -->
+
+<div class="reservation-overlay"
+     id="reservationOverlay">
+
+    <div class="reservation-modal">
+
+        <button id="reservationClose">
+            ×
+        </button>
+
+        <h2>Reserve Your Table</h2>
+
+        <form id="reservationForm">
+
+            <input
+                id="reservationName"
+                type="text"
+                placeholder="Your name"
+                required
+            >
+
+            <select id="reservationGuests">
+                <option>1 Guest</option>
+                <option>2 Guests</option>
+                <option>3 Guests</option>
+                <option>4 Guests</option>
+            </select>
+
+            <input
+                id="reservationDate"
+                type="date"
+                required
+            >
+
+            <select id="reservationTime">
+                <option>10:00 AM</option>
+                <option>12:00 PM</option>
+                <option>2:00 PM</option>
+                <option>4:00 PM</option>
+                <option>6:00 PM</option>
+                <option>8:00 PM</option>
+            </select>
+
+            <button
+                class="order-btn"
+                type="submit">
+
+                Reserve My Table
+
+            </button>
+
+        </form>
+
+        <p id="reservationMessage"></p>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     CART
+================================================== -->
+
+<div class="cart-backdrop"
+     id="cartBackdrop">
+</div>
+
+
+<aside class="cart-drawer"
+       id="cartDrawer">
+
+    <div class="cart-header">
+
+        <div>
+            <small>✦ YOUR VIBE ✦</small>
+            <h2>Your Order</h2>
+        </div>
+
+        <button
+            class="cart-close"
+            id="cartClose">
+            ×
+        </button>
+
+    </div>
+
+
+    <div class="cart-body">
+
+        <div class="empty-cart"
+             id="emptyCart">
+
+            <h3>
+                Cart feeling empty ☕
+            </h3>
+
+            <p>
+                Add something delicious.
+            </p>
+
+        </div>
+
+
+        <div id="cartItems"></div>
+
+
+        <div class="cart-receipt"
+             id="cartReceipt">
+
+            <h3>
+                VIBE CHECK CAFE
+            </h3>
+
+            <br>
+
+            <div id="receiptLines"></div>
+
+            <hr>
+
+            <div class="receipt-row">
+                <span>Subtotal</span>
+                <span id="cartSubtotal">
+                    ₹0
+                </span>
+            </div>
+
+            <div class="receipt-total">
+                <strong>TOTAL</strong>
+                <strong id="cartTotal">
+                    ₹0
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="cart-footer">
+
+        <div class="cart-total-row">
+
+            <span>Total</span>
+
+            <strong id="drawerTotal">
+                ₹0
+            </strong>
+
+        </div>
+
+        <button
+            class="whatsapp-checkout"
+            id="whatsappCheckout">
+
+            Checkout on WhatsApp
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<script>
+
+/* ==================================================
+   DATA
+================================================== */
+
+const menuData = [
+
+    {
+        name: "Irani Chai",
+        category: "chai",
+        diet: ["veg"],
+        description:
+            "Strong tea, creamy milk and old-school comfort.",
+        price: 90
+    },
+
+    {
+        name: "Cutting Chai 2.0",
+        category: "chai",
+        diet: ["vegan", "gf"],
+        description:
+            "Ginger, lemongrass and oat milk.",
+        price: 120
+    },
+
+    {
+        name: "Bombay Cold Coffee",
+        category: "coffee",
+        diet: ["veg", "gf"],
+        description:
+            "Espresso, milk, vanilla and nostalgia.",
+        price: 190
+    },
+
+    {
+        name: "Coconut Cold Brew",
+        category: "coffee",
+        diet: ["vegan", "gf"],
+        description:
+            "Slow brew, coconut water and orange peel.",
+        price: 210
+    },
+
+    {
+        name: "Jamun Fizz",
+        category: "coolers",
+        diet: ["vegan", "gf"],
+        description:
+            "Jamun, lime, soda and kala namak.",
+        price: 180
+    },
+
+    {
+        name: "Gulabo Lemonade",
+        category: "coolers",
+        diet: ["vegan", "gf"],
+        description:
+            "Rose, fresh lemon, mint and soda.",
+        price: 170
+    },
+
+    {
+        name: "OG Bun Maska",
+        category: "nashta",
+        diet: ["veg"],
+        description:
+            "Toasted bun and salted butter.",
+        price: 110
+    },
+
+    {
+        name: "Mawa Cake",
+        category: "meetha",
+        diet: ["veg"],
+        description:
+            "Classic Irani café cake with cardamom.",
+        price: 140
+    },
+
+    {
+        name: "Pista Kulfi Cloud",
+        category: "meetha",
+        diet: ["veg", "gf"],
+        description:
+            "Pistachio kulfi, rose and toasted nuts.",
+        price: 190
+    }
+
+];
+
+
+const builderData = {
+
+    base: [
+        ["Coffee", 160],
+        ["Matcha", 180],
+        ["Chai", 140]
+    ],
+
+    milk: [
+        ["Regular", 0],
+        ["Oat", 30],
+        ["Almond", 40]
+    ],
+
+    flavour: [
+        ["Classic", 0],
+        ["Pistachio", 40],
+        ["Rose", 30],
+        ["Vanilla", 30]
+    ],
+
+    temperature: [
+        ["Iced", 0],
+        ["Hot", 0]
+    ]
+
+};
+
+
+const faqData = [
+
+    [
+        "Do I need a reservation?",
+        "Walk-ins are welcome. For larger groups or busy evenings, reserving a table is recommended."
+    ],
+
+    [
+        "Do you have vegetarian and vegan options?",
+        "Yes. Use the dietary filters in the menu to find vegetarian, vegan and gluten-free choices."
+    ],
+
+    [
+        "Can I customise my drink?",
+        "Absolutely. Use the Build Your Own Drink section to select your base, milk, flavour and temperature."
+    ],
+
+    [
+        "Is the café good for studying?",
+        "Yes. Come for the Wi-Fi and stay for the chai. Please be considerate during busy hours."
+    ],
+
+    [
+        "Can I host an event here?",
+        "Small celebrations, workshops and community events are welcome. Contact the café to discuss your idea."
+    ],
+
+    [
+        "Is photography allowed?",
+        "Casual photography is welcome. Professional shoots should be arranged with the café first."
+    ]
+
+];
+
+
+/* ==================================================
+   MENU
+================================================== */
+
+const menuList =
+    document.getElementById(
+        "menuList"
+    );
+
+
+function renderMenu() {
+
+    menuList.innerHTML =
+        menuData.map(
+            (item, index) => `
+
+            <article
+                class="menu-item"
+                data-category="${item.category}"
+                data-diet="${item.diet.join(" ")}">
+
+                <div>
+
+                    <small>
+                        ${String(index + 1)
+                            .padStart(2,"0")}
+                    </small>
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p>
+                        ${item.description}
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        ₹${item.price}
+                    </strong>
+
+                    <br>
+
+                    <button
+                        class="mini-add"
+                        data-item="${item.name}"
+                        data-price="${item.price}">
+
+                        +
+
+                    </button>
+
+                </div>
+
+            </article>
+
+        `
+        ).join("");
+
+}
+
+
+renderMenu();
+
+
+let currentCategory = "all";
+
+
+const tabs =
+    document.querySelectorAll(
+        ".menu-tab"
+    );
+
+
+const dietBoxes =
+    document.querySelectorAll(
+        ".diet-filters input"
+    );
+
+
+function filterMenu() {
+
+    const diets =
+        [...dietBoxes]
+        .filter(box => box.checked)
+        .map(box => box.value);
+
+
+    document
+        .querySelectorAll(
+            ".menu-item"
+        )
+        .forEach(item => {
+
+            const categoryMatch =
+                currentCategory === "all" ||
+                item.dataset.category ===
+                    currentCategory;
+
+
+            const itemDiets =
+                item.dataset.diet
+                    .split(" ");
+
+
+            const dietMatch =
+                diets.length === 0 ||
+                diets.every(
+                    diet =>
+                        itemDiets.includes(
+                            diet
+                        )
+                );
+
+
+            item.classList.toggle(
+                "hidden",
+                !(
+                    categoryMatch &&
+                    dietMatch
+                )
+            );
+
+        });
+
+}
+
+
+tabs.forEach(tab => {
+
+    tab.addEventListener(
+        "click",
+        () => {
+
+            tabs.forEach(
+                button =>
+                    button.classList
+                        .remove("active")
+            );
+
+
+            tab.classList.add(
+                "active"
+            );
+
+
+            currentCategory =
+                tab.dataset.category;
+
+
+            filterMenu();
+
+        }
+    );
+
+});
+
+
+dietBoxes.forEach(
+    box =>
+        box.addEventListener(
+            "change",
+            filterMenu
+        )
+);
+
+
+/* ==================================================
+   DRINK BUILDER
+================================================== */
+
+const builderOptions =
+    document.getElementById(
+        "builderOptions"
+    );
+
+
+const selections = {};
+
+
+Object.entries(
+    builderData
+).forEach(
+    ([type, options], index) => {
+
+        selections[type] = {
+
+            value:
+                options[0][0],
+
+            price:
+                options[0][1]
+
+        };
+
+
+        const step =
+            document.createElement(
+                "div"
+            );
+
+
+        step.className =
+            "builder-step";
+
+
+        step.innerHTML = `
+
+            <span>
+                0${index + 1}
+            </span>
+
+            <div>
+
+                <h3>
+                    Choose ${type}
+                </h3>
+
+                <div
+                    class="choice-buttons"
+                    data-option="${type}">
+
+                    ${options.map(
+                        ([name, price], i) => `
+
+                        <button
+                            class="choice ${i === 0 ? "active" : ""}"
+                            data-value="${name}"
+                            data-price="${price}">
+
+                            ${name}
+
+                            ${price
+                                ? `+₹${price}`
+                                : ""}
+
+                        </button>
+
+                    `
+                    ).join("")}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        builderOptions.appendChild(
+            step
+        );
+
+    }
+);
+
+
+const creationName =
+    document.getElementById(
+        "creationName"
+    );
+
+const creationDetails =
+    document.getElementById(
+        "creationDetails"
+    );
+
+const customPrice =
+    document.getElementById(
+        "customPrice"
+    );
+
+const drinkLiquid =
+    document.getElementById(
+        "drinkLiquid"
+    );
+
+
+function updateDrink() {
+
+    const total =
+        Object.values(
+            selections
+        )
+        .reduce(
+            (sum, item) =>
+                sum + item.price,
+            0
+        );
+
+
+    creationName.textContent =
+        `${selections.flavour.value} ${selections.temperature.value} ${selections.base.value}`;
+
+
+    creationDetails.textContent =
+        `${selections.milk.value} milk`;
+
+
+    customPrice.textContent =
+        `₹${total}`;
+
+
+    const colours = {
+
+        Pistachio:
+            "#93a66c",
+
+        Rose:
+            "#d8898f",
+
+        Matcha:
+            "#80945d",
+
+        Chai:
+            "#b8794e",
+
+        Coffee:
+            "#93634e"
+
+    };
+
+
+    drinkLiquid.style.background =
+        colours[
+            selections.flavour.value
+        ] ||
+        colours[
+            selections.base.value
+        ] ||
+        "#93634e";
+
+}
+
+
+document
+    .querySelectorAll(
+        ".choice-buttons"
+    )
+    .forEach(group => {
+
+        group.addEventListener(
+            "click",
+            event => {
+
+                const button =
+                    event.target.closest(
+                        ".choice"
+                    );
+
+
+                if (!button) return;
+
+
+                group
+                    .querySelectorAll(
+                        ".choice"
+                    )
+                    .forEach(
+                        item =>
+                            item.classList
+                                .remove(
+                                    "active"
+                                )
+                    );
+
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                selections[
+                    group.dataset.option
+                ] = {
+
+                    value:
+                        button.dataset.value,
+
+                    price:
+                        Number(
+                            button.dataset.price
+                        )
+
+                };
+
+
+                updateDrink();
+
+            }
+        );
+
+    });
+
+
+updateDrink();
+
+
+/* ==================================================
+   CART
+================================================== */
+
+const cart = [];
+
+
+function addToCart(
+    name,
+    price
+) {
+
+    price =
+        Number(price);
+
+
+    const existing =
+        cart.find(
+            item =>
+                item.name === name &&
+                item.price === price
+        );
+
+
+    if (existing) {
+
+        existing.quantity++;
+
+    }
+
+    else {
+
+        cart.push({
+
+            id:
+                Date.now() +
+                Math.random(),
+
+            name,
+
+            price,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    renderCart();
+
+}
+
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                ".add-order, .mini-add"
+            );
+
+
+        if (!button) return;
+
+
+        addToCart(
+            button.dataset.item,
+            button.dataset.price
+        );
+
+
+        const original =
+            button.textContent;
+
+
+        button.textContent =
+            "Added ✓";
+
+
+        setTimeout(
+            () =>
+                button.textContent =
+                    original,
+            700
+        );
+
+    }
+);
+
+
+document
+    .getElementById(
+        "builderAdd"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const price =
+                Number(
+                    customPrice
+                        .textContent
+                        .replace(
+                            /[^\d]/g,
+                            ""
+                        )
+                );
+
+
+            addToCart(
+                creationName.textContent,
+                price
+            );
+
+        }
+    );
+
+
+const cartDrawer =
+    document.getElementById(
+        "cartDrawer"
+    );
+
+const cartBackdrop =
+    document.getElementById(
+        "cartBackdrop"
+    );
+
+const cartItems =
+    document.getElementById(
+        "cartItems"
+    );
+
+
+function openCart() {
+
+    cartDrawer.classList.add(
+        "open"
+    );
+
+    cartBackdrop.classList.add(
+        "show"
+    );
+
+}
+
+
+function closeCart() {
+
+    cartDrawer.classList.remove(
+        "open"
+    );
+
+    cartBackdrop.classList.remove(
+        "show"
+    );
+
+}
+
+
+document
+    .getElementById(
+        "cartButton"
+    )
+    .addEventListener(
+        "click",
+        openCart
+    );
+
+
+document
+    .getElementById(
+        "cartClose"
+    )
+    .addEventListener(
+        "click",
+        closeCart
+    );
+
+
+cartBackdrop.addEventListener(
+    "click",
+    closeCart
+);
+
+
+function renderCart() {
+
+    cartItems.innerHTML = "";
+
+    const receipt =
+        document.getElementById(
+            "receiptLines"
+        );
+
+
+    receipt.innerHTML = "";
+
+
+    let total = 0;
+    let count = 0;
+
+
+    cart.forEach(item => {
+
+        const line =
+            item.price *
+            item.quantity;
+
+
+        total += line;
+
+        count +=
+            item.quantity;
+
+
+        const row =
+            document.createElement(
+                "div"
+            );
+
+
+        row.className =
+            "cart-item";
+
+
+        row.innerHTML = `
+
+            <div>
+
+                <strong>
+                    ${item.name}
+                </strong>
+
+                <p>
+                    ₹${item.price}
+                </p>
+
+                <div class="quantity-control">
+
+                    <button
+                        data-action="minus"
+                        data-id="${item.id}">
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        data-action="plus"
+                        data-id="${item.id}">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <strong>
+                ₹${line}
+            </strong>
+
+        `;
+
+
+        cartItems.appendChild(
+            row
+        );
+
+
+        receipt.innerHTML += `
+
+            <div class="receipt-item">
+
+                <span>
+                    ${item.quantity} ×
+                    ${item.name}
+                </span>
+
+                <span>
+                    ₹${line}
+                </span>
+
+            </div>
+
+        `;
+
+    });
+
+
+    document.getElementById(
+        "cartBadge"
+    ).textContent =
+        count;
+
+
+    document.getElementById(
+        "cartSubtotal"
+    ).textContent =
+        `₹${total}`;
+
+
+    document.getElementById(
+        "cartTotal"
+    ).textContent =
+        `₹${total}`;
+
+
+    document.getElementById(
+        "drawerTotal"
+    ).textContent =
+        `₹${total}`;
+
+
+    document.getElementById(
+        "emptyCart"
+    ).style.display =
+        cart.length
+            ? "none"
+            : "block";
+
+
+    document.getElementById(
+        "cartReceipt"
+    ).classList.toggle(
+        "show",
+        cart.length > 0
+    );
+
+}
+
+
+cartItems.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                "[data-action]"
+            );
+
+
+        if (!button) return;
+
+
+        const item =
+            cart.find(
+                product =>
+                    product.id ===
+                    Number(
+                        button.dataset.id
+                    )
+            );
+
+
+        if (!item) return;
+
+
+        if (
+            button.dataset.action ===
+            "plus"
+        ) {
+
+            item.quantity++;
+
+        }
+
+        else {
+
+            item.quantity--;
+
+
+            if (
+                item.quantity <= 0
+            ) {
+
+                cart.splice(
+                    cart.indexOf(item),
+                    1
+                );
+
+            }
+
+        }
+
+
+        renderCart();
+
+    }
+);
+
+
+/* ==================================================
+   WHATSAPP
+================================================== */
+
+/*
+Replace with real number:
+
+Example:
+919876543210
+*/
+
+const whatsappNumber =
+    "91XXXXXXXXXX";
+
+
+document
+    .getElementById(
+        "whatsappCheckout"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (!cart.length) {
+                return;
+            }
+
+
+            if (
+                whatsappNumber
+                    .includes("X")
+            ) {
+
+                alert(
+                    "Add the cafe WhatsApp number in the code first."
+                );
+
+                return;
+
+            }
+
+
+            let total = 0;
+
+
+            const lines =
+                cart.map(item => {
+
+                    const amount =
+                        item.price *
+                        item.quantity;
+
+
+                    total += amount;
+
+
+                    return (
+                        `${item.quantity} x ` +
+                        `${item.name} - ` +
+                        `₹${amount}`
+                    );
+
+                });
+
+
+            const message = [
+
+                "Hi Vibe Check Cafe! ☕",
+                "",
+                "I'd like to order:",
+                "",
+                ...lines,
+                "",
+                `Total: ₹${total}`
+
+            ].join("\n");
+
+
+            window.open(
+
+                `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+
+                "_blank"
+
+            );
+
+        }
+    );
+
+
+/* ==================================================
+   QUIZ
+================================================== */
+
+let answer1 = "";
+let answer2 = "";
+
+let recommendedDrink = "";
+let recommendedPrice = 0;
+
+
+document
+    .querySelectorAll(
+        "#question1 .quiz-option"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                answer1 =
+                    button.dataset.answer;
+
+
+                document
+                    .getElementById(
+                        "question1"
+                    )
+                    .classList
+                    .remove(
+                        "active"
+                    );
+
+
+                document
+                    .getElementById(
+                        "question2"
+                    )
+                    .classList
+                    .add(
+                        "active"
+                    );
+
+            }
+        );
+
+    });
+
+
+document
+    .querySelectorAll(
+        "#question2 .quiz-option"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                answer2 =
+                    button.dataset.answer;
+
+
+                showQuizResult();
+
+            }
+        );
+
+    });
+
+
+function showQuizResult() {
+
+    let description;
+    let icon;
+
+
+    if (
+        answer1 === "chaos" ||
+        answer2 === "night"
+    ) {
+
+        recommendedDrink =
+            "After Hours Croffle";
+
+        recommendedPrice =
+            280;
+
+        description =
+            "Rich, dramatic and made for late nights.";
+
+        icon = "🌙";
+
+    }
+
+    else if (
+        answer1 === "fun" ||
+        answer2 === "date"
+    ) {
+
+        recommendedDrink =
+            "Pink Monsoon";
+
+        recommendedPrice =
+            240;
+
+        description =
+            "Sweet, playful and made for the camera.";
+
+        icon = "🌸";
+
+    }
+
+    else {
+
+        recommendedDrink =
+            "Pista First Light";
+
+        recommendedPrice =
+            220;
+
+        description =
+            "Calm, creamy and quietly iconic.";
+
+        icon = "🌿";
+
+    }
+
+
+    document
+        .getElementById(
+            "question2"
+        )
+        .classList
+        .remove(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "quizResult"
+        )
+        .classList
+        .add(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "resultDrink"
+        )
+        .textContent =
+            recommendedDrink;
+
+
+    document
+        .getElementById(
+            "resultPrice"
+        )
+        .textContent =
+            `₹${recommendedPrice}`;
+
+
+    document
+        .getElementById(
+            "resultDescription"
+        )
+        .textContent =
+            description;
+
+
+    document
+        .getElementById(
+            "resultIcon"
+        )
+        .textContent =
+            icon;
+
+}
+
+
+document
+    .getElementById(
+        "quizAdd"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            if (
+                recommendedDrink
+            ) {
+
+                addToCart(
+                    recommendedDrink,
+                    recommendedPrice
+                );
+
+            }
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "restartQuiz"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            answer1 = "";
+            answer2 = "";
+
+            document
+                .getElementById(
+                    "quizResult"
+                )
+                .classList
+                .remove(
+                    "show"
+                );
+
+
+            document
+                .getElementById(
+                    "question1"
+                )
+                .classList
+                .add(
+                    "active"
+                );
+
+        }
+    );
+
+
+/* ==================================================
+   CLOCK + OPEN STATUS
+================================================== */
+
+function cafeTimeParts() {
+
+    const parts =
+        new Intl.DateTimeFormat(
+            "en-US",
+            {
+                timeZone:
+                    "Asia/Kolkata",
+
+                weekday:
+                    "short",
+
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit",
+
+                hour12:
+                    false
+            }
+        )
+        .formatToParts(
+            new Date()
+        );
+
+
+    const result = {};
+
+
+    parts.forEach(
+        part =>
+            result[part.type] =
+                part.value
+    );
+
+
+    return result;
+
+}
+
+
+function updateClock() {
+
+    const time =
+        cafeTimeParts();
+
+
+    let hour =
+        Number(time.hour);
+
+
+    const ampm =
+        hour >= 12
+            ? "PM"
+            : "AM";
+
+
+    hour =
+        hour % 12 || 12;
+
+
+    document.getElementById(
+        "hour"
+    ).textContent =
+        String(hour)
+            .padStart(2,"0");
+
+
+    document.getElementById(
+        "minute"
+    ).textContent =
+        time.minute;
+
+
+    document.getElementById(
+        "ampm"
+    ).textContent =
+        ampm;
+
+
+    const minutes =
+        Number(time.hour) *
+        60 +
+        Number(time.minute);
+
+
+    const weekday =
+        ["Mon","Tue","Wed","Thu"]
+        .includes(
+            time.weekday
+        );
+
+
+    const close =
+        weekday
+            ? 22 * 60
+            : 23 * 60;
+
+
+    const open =
+        minutes >= 540 &&
+        minutes < close;
+
+
+    const status =
+        document.getElementById(
+            "openStatus"
+        );
+
+
+    status.classList.toggle(
+        "open",
+        open
+    );
+
+
+    status.classList.toggle(
+        "closed",
+        !open
+    );
+
+
+    document.getElementById(
+        "statusText"
+    ).textContent =
+        open
+            ? `Open · until ${weekday ? "10" : "11"} PM`
+            : "Closed · opens 9 AM";
+
+}
+
+
+updateClock();
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+/* VIBE BOARD */
+
+const vibes = [
+
+    "CHAI O'CLOCK",
+    "FULL CHILL",
+    "COFFEE MODE",
+    "BUN MASKA ERA",
+    "GOOD VIBES",
+    "ADDA TIME"
+
+];
+
+
+let vibeIndex = 0;
+
+
+setInterval(
+    () => {
+
+        vibeIndex =
+            (vibeIndex + 1) %
+            vibes.length;
+
+
+        document.getElementById(
+            "vibeText"
+        ).textContent =
+            vibes[vibeIndex];
+
+    },
+    3000
+);
+
+
+/* ==================================================
+   FAQ
+================================================== */
+
+const faqList =
+    document.getElementById(
+        "faqList"
+    );
+
+
+faqList.innerHTML =
+    faqData.map(
+        ([question, answer]) => `
+
+        <article class="faq-item">
+
+            <button
+                class="faq-question">
+
+                <span>
+                    ${question}
+                </span>
+
+                <strong>+</strong>
+
+            </button>
+
+            <div class="faq-answer">
+
+                <p>
+                    ${answer}
+                </p>
+
+            </div>
+
+        </article>
+
+    `
+    ).join("");
+
+
+faqList.addEventListener(
+    "click",
+    event => {
+
+        const button =
+            event.target.closest(
+                ".faq-question"
+            );
+
+
+        if (!button) return;
+
+
+        const item =
+            button.parentElement;
+
+
+        const answer =
+            item.querySelector(
+                ".faq-answer"
+            );
+
+
+        const open =
+            item.classList.toggle(
+                "open"
+            );
+
+
+        answer.style.maxHeight =
+            open
+                ? answer.scrollHeight +
+                    "px"
+                : null;
+
+    }
+);
+
+
+/* ==================================================
+   THEME
+================================================== */
+
+const themeToggle =
+    document.getElementById(
+        "themeToggle"
+    );
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        const dark =
+            document.body
+                .classList
+                .toggle(
+                    "dark-theme"
+                );
+
+
+        themeToggle.textContent =
+            dark
+                ? "☀"
+                : "☾";
+
+    }
+);
+
+
+/* ==================================================
+   EVENT MODAL
+================================================== */
+
+const bookingOverlay =
+    document.getElementById(
+        "bookingOverlay"
+    );
+
+
+document
+    .querySelectorAll(
+        ".book-event"
+    )
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .getElementById(
+                        "bookingEvent"
+                    )
+                    .textContent =
+                        button.dataset.event;
+
+
+                bookingOverlay
+                    .classList
+                    .add(
+                        "show"
+                    );
+
+            }
+        );
+
+    });
+
+
+document
+    .getElementById(
+        "closeBooking"
+    )
+    .addEventListener(
+        "click",
+        () =>
+            bookingOverlay
+                .classList
+                .remove(
+                    "show"
+                )
+    );
+
+
+document
+    .getElementById(
+        "confirmBooking"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const name =
+                document
+                    .getElementById(
+                        "bookingName"
+                    )
+                    .value
+                    .trim();
+
+
+            document
+                .getElementById(
+                    "bookingMessage"
+                )
+                .textContent =
+                    name
+                        ? `You're in, ${name}! ✦`
+                        : "Please enter your name.";
+
+        }
+    );
+
+
+/* ==================================================
+   RESERVATION
+================================================== */
+
+const reservationOverlay =
+    document.getElementById(
+        "reservationOverlay"
+    );
+
+
+document
+    .getElementById(
+        "reserveTable"
+    )
+    .addEventListener(
+        "click",
+        () =>
+            reservationOverlay
+                .classList
+                .add(
+                    "show"
+                )
+    );
+
+
+document
+    .getElementById(
+        "reservationClose"
+    )
+    .addEventListener(
+        "click",
+        () =>
+            reservationOverlay
+                .classList
+                .remove(
+                    "show"
+                )
+    );
+
+
+document
+    .getElementById(
+        "reservationForm"
+    )
+    .addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById(
+                        "reservationName"
+                    )
+                    .value;
+
+
+            document
+                .getElementById(
+                    "reservationMessage"
+                )
+                .textContent =
+                    `Vibe secured, ${name}! See you soon ✦`;
+
+        }
+    );
+
+
+/* ==================================================
+   POLAROID DRAGGING
+================================================== */
+
+const wall =
+    document.getElementById(
+        "photoWall"
+    );
+
+
+let activePhoto = null;
+let offsetX = 0;
+let offsetY = 0;
+let zIndex = 20;
+
+
+document
+    .querySelectorAll(
+        ".polaroid"
+    )
+    .forEach(photo => {
+
+        photo.addEventListener(
+            "pointerdown",
+            event => {
+
+                if (
+                    window.innerWidth <
+                    700
+                ) {
+                    return;
+                }
+
+
+                activePhoto =
+                    photo;
+
+
+                const rect =
+                    photo
+                        .getBoundingClientRect();
+
+
+                offsetX =
+                    event.clientX -
+                    rect.left;
+
+
+                offsetY =
+                    event.clientY -
+                    rect.top;
+
+
+                photo.style.zIndex =
+                    ++zIndex;
+
+
+                photo.style.transform =
+                    "none";
+
+
+                photo.setPointerCapture(
+                    event.pointerId
+                );
+
+            }
+        );
+
+
+        photo.addEventListener(
+            "pointermove",
+            event => {
+
+                if (
+                    activePhoto !==
+                    photo
+                ) return;
+
+
+                const rect =
+                    wall
+                        .getBoundingClientRect();
+
+
+                let x =
+                    event.clientX -
+                    rect.left -
+                    offsetX;
+
+
+                let y =
+                    event.clientY -
+                    rect.top -
+                    offsetY;
+
+
+                x =
+                    Math.max(
+                        0,
+                        Math.min(
+                            x,
+                            wall.clientWidth -
+                            photo.offsetWidth
+                        )
+                    );
+
+
+                y =
+                    Math.max(
+                        0,
+                        Math.min(
+                            y,
+                            wall.clientHeight -
+                            photo.offsetHeight
+                        )
+                    );
+
+
+                photo.style.left =
+                    `${x}px`;
+
+
+                photo.style.top =
+                    `${y}px`;
+
+
+                photo.style.right =
+                    "auto";
+
+
+                photo.style.bottom =
+                    "auto";
+
+            }
+        );
+
+
+        photo.addEventListener(
+            "pointerup",
+            () => {
+
+                activePhoto = null;
+
+            }
+        );
+
+    });
+
+
+/* ==================================================
+   SMOOTH LINKS
+================================================== */
+
+document
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const target =
+                    document.querySelector(
+                        link.getAttribute(
+                            "href"
+                        )
+                    );
+
+
+                if (!target) return;
+
+
+                event.preventDefault();
+
+
+                target.scrollIntoView({
+                    behavior:
+                        "smooth"
+                });
+
+            }
+        );
+
+    });
+
+
+renderCart();
+
+</script>
+
+
+</body>
+</html>
